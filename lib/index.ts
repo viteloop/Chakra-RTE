@@ -1,1 +1,1 @@
-export * from './components'
+export {Typewriter} from './Typewriter'
