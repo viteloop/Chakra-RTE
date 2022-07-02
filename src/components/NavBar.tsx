@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   Stack,
   useColorMode,
+  Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {FaGithub} from 'react-icons/fa'
@@ -41,9 +42,12 @@ export default function Nav() {
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
 
-              <Button>
+              <Center>
+
+              <Link href='https://github.com/viteloop/Chakra-RTE' isExternal> 
                 <FaGithub />
-              </Button>
+              </Link>
+              </Center>
             </Stack>
           </Flex>
         </Flex>
