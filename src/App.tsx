@@ -1,45 +1,50 @@
+import { Box, Center, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import {Typewriter} from '../lib'
+import {RichTextEditor} from '../lib'
+import Nav from './components/NavBar'
+
+const initialContent = `
+      <h2>
+        Hi there,
+      </h2>
+      <p>
+        this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
+      </p>
+      <ul>
+        <li>
+          That’s a bullet list with one …
+        </li>
+        <li>
+          … or two list items.
+        </li>
+      </ul>
+      <p>
+        Isn’t that great? And all of that is editable. But wait, there’s more. Let’s try a code block:
+      </p>
+      <pre><code class="language-css">body {
+  display: none;
+}</code></pre>
+      <p>
+        I know, I know, this is impressive. It’s only the tip of the iceberg though. Give it a try and click a little bit around. Don’t forget to check the other examples too.
+      </p>
+      <blockquote>
+        Wow, that’s amazing. Good work, boy! 👏
+        <br />
+        — Mom
+      </blockquote>
+`
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [content, setContent] = useState(initialContent)
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <Typewriter />
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+        <Nav />
       </header>
+      <Flex my={20} flexDirection={'column'} justifyContent='center' alignItems={'center'}>
+        <RichTextEditor content={content}/>
+      </Flex>
     </div>
   )
 }
