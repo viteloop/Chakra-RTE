@@ -10,18 +10,19 @@ import {
   Switch,
   FormControl,
   FormLabel,
+  useToast,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {FaGithub} from 'react-icons/fa'
 import { useState } from 'react'
-import {RichTextEditor} from '../lib'
+import {RichTextEditor, RichTextReader, JSONContent} from '../lib'
 import initialContent from './InitialContent.json'
-import { JSONContent } from '@tiptap/react';
 
 function App() {
   const [content, setContent] = useState<JSONContent>(initialContent)
   const { colorMode, toggleColorMode } = useColorMode();
   const [editMode, setEditMode] = useState(true);
+  const toast = useToast()
 
   return (
     <div className="App">
@@ -59,7 +60,17 @@ function App() {
         justifyContent='center' 
         alignItems={'center'}
         >
-        <RichTextEditor content={content} onSave={(content) => setContent(content)}/>
+          {editMode ? 
+        <RichTextEditor content={content} onSave={(content) => {setContent(content);  toast({
+          title: 'Content saved.',
+          description: "We've saved the editor content for you.",
+          position: 'top',
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        }) }}/>
+        : <RichTextReader content={content} />
+          }
       </Flex>
     </div>
   )

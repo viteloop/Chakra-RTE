@@ -9,7 +9,7 @@
       "content": [
         {
           "type": "text",
-          "text": "Hi there,"
+          "text": "Hello,"
         }
       ]
     },
@@ -40,7 +40,7 @@
               "type": "bold"
             }
           ],
-          "text": "tiptap"
+          "text": "Chakra RichTextEditor"
         },
         {
           "type": "text",
