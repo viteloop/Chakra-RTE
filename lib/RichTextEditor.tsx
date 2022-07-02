@@ -1,13 +1,14 @@
 import React from "react";
-import { useEditor, EditorContent, Content } from '@tiptap/react'
+import { useEditor, EditorContent, JSONContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { MenuBar } from "./nested/MenuBar";
 
 export interface RichTextEditorProps {
-  content : Content
+  content : JSONContent,
+  onSave(c: JSONContent) : void
 }
 
-export const RichTextEditor = ({content}: RichTextEditorProps) => {
+export const RichTextEditor = ({content, onSave}: RichTextEditorProps) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -17,7 +18,7 @@ export const RichTextEditor = ({content}: RichTextEditorProps) => {
 
   return (
     <div>
-      <MenuBar editor={editor!} />
+      <MenuBar editor={editor!} onSave={onSave}/>
       <EditorContent editor={editor} />
     </div>
   )

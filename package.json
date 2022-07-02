@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.2",
+    "@emotion/babel-plugin": "^11.9.2",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
@@ -24,6 +25,7 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@vitejs/plugin-react": "^1.3.2",
+    "esbuild": "^0.14.44",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "rollup": "^2.75.7",

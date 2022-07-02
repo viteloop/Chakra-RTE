@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button, ButtonGroup, HStack } from '@chakra-ui/react'
-import { Editor } from '@tiptap/react'
+import { Content, Editor } from '@tiptap/react'
 import {FaUndo, FaRedo, FaHeading, FaBold, FaItalic} from 'react-icons/fa'
 import {ImStrikethrough} from 'react-icons/im'
 import {RiCodeBoxLine, RiCodeFill} from 'react-icons/ri'
@@ -13,10 +13,11 @@ import {VscClearAll} from 'react-icons/vsc'
 import {BsParagraph} from 'react-icons/bs'
 
 export type MenuBarProps = {
-  editor : Editor
+  editor : Editor,
+  onSave(c: Content) : void
 }
 
-export const MenuBar = ({ editor } : MenuBarProps) => {
+export const MenuBar = ({ editor, onSave } : MenuBarProps) => {
   if (!editor) {
     return null
   }
@@ -146,7 +147,7 @@ export const MenuBar = ({ editor } : MenuBarProps) => {
         </Button>
       </ButtonGroup>
       <ButtonGroup isAttached variant='outline'>
-        <Button>
+        <Button onClick={() => onSave(editor.getJSON())} >
           <IoSave />
         </Button>
       </ButtonGroup>
