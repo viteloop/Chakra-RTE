@@ -2,6 +2,8 @@ import React from "react";
 import { useEditor, EditorContent, JSONContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { MenuBar } from "./nested/MenuBar";
+import { css } from "@emotion/react";
+import { StyledContent } from "./nested/StyledContent";
 
 export interface RichTextEditorProps {
   content : JSONContent,
@@ -19,7 +21,9 @@ export const RichTextEditor = ({content, onSave}: RichTextEditorProps) => {
   return (
     <div>
       <MenuBar editor={editor!} onSave={onSave}/>
-      <EditorContent editor={editor} />
+      <StyledContent>
+        <EditorContent editor={editor} />
+      </StyledContent>
     </div>
   )
 }

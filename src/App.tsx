@@ -53,7 +53,12 @@ function App() {
         </Flex>
       </Box>
       </header>
-      <Flex my={20} flexDirection={'column'} justifyContent='center' alignItems={'center'}>
+      <Flex 
+        my={20} 
+        flexDirection={'column'} 
+        justifyContent='center' 
+        alignItems={'center'}
+        >
         <RichTextEditor content={content} onSave={(content) => setContent(content)}/>
       </Flex>
     </div>
