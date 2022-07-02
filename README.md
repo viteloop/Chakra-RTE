@@ -1,6 +1,6 @@
 # Chakra RichTextEditor
 
-A Chakra component for visual editing that uses TipTap under the hood.
+A Chakra component for visual editing that uses TipTap under the hood. Compatible with Light/Dark mode.
 
 ## installation
 
@@ -35,23 +35,28 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 Then use Chakra RTE as react component :
 
 ```ts
+import React, { useState } from 'react';
 import {RichTextEditor, RichTextReader, JSONContent} from '@viteloop/chakra-rte'
 
 function App() {
-  const [content, setContent] = useState<JSONContent>(initialContent)
+  const [content, setContent] = useState<JSONContent>({})
   const [editMode, setEditMode] = useState(true);
-
   return (
     <div className="App">
+      <header className="App-header">
+        <h1>Hello World</h1>
+      </header>
 
-      //... some content of your App
-
+      {/*  Some content of your app */}
+      
       {editMode ?
-        <RichTextEditor content={content} onSave={(content) => {setContent(content)}) }}/>
+        <RichTextEditor content={content} onSave={(content) => {setContent(content)}}/>
         : <RichTextReader content={content} />
       }
     </div>
-  )
+  );
 }
+
+export default App;
 
 ```
