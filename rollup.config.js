@@ -14,21 +14,32 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        sourcemap: false,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.library.json" }),
+      typescript({ tsconfig: "./tsconfig.library.json", sourceMap: false }),
       terser(),
     ],
+    onwarn: function (warning) {
+      // Skip certain warnings
+
+      // should intercept ... but doesn't in some rollup versions
+      if (warning.code === "THIS_IS_UNDEFINED") {
+        return;
+      }
+
+      // console.warn everything else
+      console.warn(warning.message);
+    },
   },
   {
     input: "dist/esm/types/index.d.ts",

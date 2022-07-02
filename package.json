@@ -1,7 +1,7 @@
 {
-  "name": "chakra-typewriter",
+  "name": "@viteloop/chakra-rte",
   "version": "0.0.1",
-  "description": "A chakra component for visual editing",
+  "description": "A Rich Text Editor made with Chakra UI and TipTap",
   "directories": {
     "lib": "lib"
   },
