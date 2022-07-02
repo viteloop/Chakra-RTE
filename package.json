@@ -2,6 +2,7 @@
   "name": "@viteloop/chakra-rte",
   "version": "0.0.2",
   "description": "A Rich Text Editor made with Chakra UI and TipTap",
+  "homepage": "https://github.com/viteloop/Chakra-RTE",
   "directories": {
     "lib": "lib"
   },
